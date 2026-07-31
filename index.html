@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Kuro Scam - Malware Investigation</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+    <style> 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; } 
+        body { background: #0a0a0f; color: #e0e0e0; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px; } 
+        .container { max-width: 1000px; width: 100%%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 50px; backdrop-filter: blur(10px); box-shadow: 0 20px 80px rgba(0,0,0,0.5); } 
+        .header { display: flex; align-items: center; gap: 18px; border-bottom: 2px solid rgba(255,255,255,0.04); padding-bottom: 20px; margin-bottom: 30px; } 
+        .header-icon { width: 56px; height: 56px; background: rgba(124,58,237,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #7c3aed; border: 1px solid rgba(124,58,237,0.1); } 
+        .header h1 { font-size: 24px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #7c3aed, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } 
+        .header .sub { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 3px; margin-left: auto; } 
+        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 14px; padding: 16px 20px; margin-bottom: 30px; } 
+        .stats-bar .stat { display: flex; align-items: center; gap: 10px; } 
+        .stats-bar .stat i { color: #7c3aed; font-size: 16px; width: 20px; text-align: center; } 
+        .stats-bar .stat .number { font-size: 20px; font-weight: 900; color: #fff; } 
+        .stats-bar .stat .label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; } 
+        .item { display: flex; align-items: center; gap: 18px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 18px 22px; margin-bottom: 12px; transition: all 0.3s; } 
+        .item:hover { background: rgba(124,58,237,0.04); border-color: rgba(124,58,237,0.15); transform: translateX(6px); } 
+        .item .number { font-size: 18px; font-weight: 900; color: #7c3aed; min-width: 36px; } 
+        .item .content { flex: 1; } 
+        .item .content .title { font-size: 16px; font-weight: 700; color: #e0e0e0; text-transform: uppercase; } 
+        .item .content .title span { background: linear-gradient(135deg, #7c3aed, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } 
+        .item .content .desc { font-size: 12px; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; } 
+        .item .content .desc i { color: #7c3aed; margin-right: 6px; } 
+        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 18px; border-radius: 50px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.1); } 
+        .badge-github { background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.1); } 
+        .btn-group { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; } 
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 10px; font-size: 13px; font-weight: 700; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(124,58,237,0.2); background: rgba(124,58,237,0.05); color: #a78bfa; transition: all 0.3s; } 
+        .btn:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); transform: translateY(-2px); } 
+        .btn-primary { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.3); color: #7c3aed; } 
+        .btn-primary:hover { background: rgba(124,58,237,0.25); } 
+        .footer-text { margin-top: 30px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.04); text-align: center; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; } 
+        .footer-text i { color: #7c3aed; } 
+        .copy-protection { position: fixed; bottom: 20px; left: 50%%; transform: translateX(-50%%); font-size: 9px; color: #1a1a1a; letter-spacing: 3px; text-transform: uppercase; user-select: none; pointer-events: none; z-index: 999; } 
+        .copy-protection i { color: #7c3aed; margin-right: 6px; } 
+        @media (max-width: 768px) { .container { padding: 30px; } .stats-bar { grid-template-columns: repeat(2, 1fr); } .item { flex-wrap: wrap; } .header .sub { display: none; } } 
+        @media (max-width: 480px) { .container { padding: 20px; } .stats-bar { grid-template-columns: 1fr; } .item { flex-direction: column; align-items: flex-start; } } 
+    </style> 
+</head> 
+<body> 
+    <div class="container"> 
+        <div class="header"> 
+            <div class="header-icon"><i class="fas fa-skull"></i></div> 
+            <h1>KURO SCAM INVESTIGATION</h1> 
+            <span class="sub"><i class="fas fa-shield-haltered"></i> INCIDENT RESPONSE</span> 
+        </div> 
+        <div class="stats-bar"> 
+            <div class="stat"><i class="fas fa-calendar"></i><span class="number">07/29/2026</span><span class="label">INCIDENT DATE</span></div> 
+            <div class="stat"><i class="fas fa-exclamation-triangle"></i><span class="number">HIGH</span><span class="label">RISK LEVEL</span></div> 
+            <div class="stat"><i class="fas fa-check-circle"></i><span class="number">NEUTRALIZED</span><span class="label">STATUS</span></div> 
+            <div class="stat"><i class="fas fa-clock"></i><span class="number">45 MIN</span><span class="label">RESPONSE TIME</span></div> 
+        </div> 
+        <div class="items"> 
+            <div class="item"><span class="number">01.</span><div class="content"><div class="title"><span>INITIAL DISCOVERY</span></div><div class="desc"><i class="fas fa-eye"></i> Kuro app installed, appeared suspicious, no visible activity</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
+            <div class="item"><span class="number">02.</span><div class="content"><div class="title"><span>INDICATORS FOUND</span></div><div class="desc"><i class="fas fa-bug"></i> splunkd.exe masquerading, Python screen capture, Registry persistence</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
+            <div class="item"><span class="number">03.</span><div class="content"><div class="title"><span>MITIGATION ACTIONS</span></div><div class="desc"><i class="fas fa-shield"></i> Network disconnected, Processes killed, Registry cleaned</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
+            <div class="item"><span class="number">04.</span><div class="content"><div class="title"><span>IOCS EXTRACTED</span></div><div class="desc"><i class="fas fa-list"></i> Domains, IPs, File paths, Registry keys identified</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
+            <div class="item"><span class="number">05.</span><div class="content"><div class="title"><span>VIRUSTOTAL ANALYSIS</span></div><div class="desc"><i class="fas fa-virus"></i> URL submitted, 1 malicious detection confirmed</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
+        </div> 
+        <div class="btn-group"> 
+            <a href="https://github.com/likith-raj/kuro-scam-investigation" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> VIEW ON GITHUB</a> 
+            <a href="virustotal-gui/index.html" target="_blank" class="btn"><i class="fas fa-chart-line"></i> LAUNCH VIRUSTOTAL GUI</a> 
+            <a href="scripts/ioc-scanner.py" target="_blank" class="btn"><i class="fas fa-code"></i> IOC SCANNER</a> 
+            <a href="detection-rules/yara-rules.yar" target="_blank" class="btn"><i class="fas fa-file-code"></i> YARA RULES</a> 
+        </div> 
+        <div class="footer-text"> 
+            <i class="fas fa-shield-alt"></i> <span>BUILT WITH ?? BY LIKITH RAJ</span> 
+        </div> 
+    </div> 
+    <div class="copy-protection"><i class="fas fa-copyright"></i> COPY PROTECTED  INCIDENT RESPONSE</div> 
+</body> 
+</html> 
