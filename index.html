@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     <style> 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; } 
-<<<<<<< HEAD
         body { background: #0a0a0f; color: #e0e0e0; min-height: 100vh; padding: 40px; } 
-        .container { max-width: 1100px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 50px; box-shadow: 0 20px 80px rgba(0,0,0,0.5); } 
+        .container { max-width: 1200px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 50px; box-shadow: 0 20px 80px rgba(0,0,0,0.5); } 
         .badge { display: inline-block; padding: 6px 18px; border-radius: 50px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.1); margin-bottom: 20px; } 
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; } 
         .header h1 { font-size: 32px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #7c3aed, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } 
@@ -19,9 +18,10 @@
         .stats .stat i { color: #7c3aed; font-size: 16px; width: 20px; } 
         .stats .stat .num { font-size: 20px; font-weight: 900; color: #fff; } 
         .stats .stat .label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; } 
-        h2 { color: #7c3aed; font-size: 20px; margin: 30px 0 15px; text-transform: uppercase; letter-spacing: 1px; } 
+        h2 { color: #7c3aed; font-size: 20px; margin: 30px 0 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(124,58,237,0.1); padding-bottom: 10px; } 
         .desc-text { color: #a8b8c8; line-height: 1.8; font-size: 15px; margin-bottom: 20px; } 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0; } 
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 15px 0; } 
         .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 20px; } 
         .card h3 { color: #e0e0e0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; } 
         .card ul { list-style: none; padding: 0; } 
@@ -35,9 +35,13 @@
         .btn:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); transform: translateY(-2px); } 
         .btn-primary { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.3); color: #7c3aed; } 
         .btn-primary:hover { background: rgba(124,58,237,0.25); } 
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 15px 0; } 
+        .screenshot-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 15px; text-align: center; } 
+        .screenshot-card img { max-width: 100%%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); } 
+        .screenshot-card p { color: #666; font-size: 12px; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; } 
         .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.04); text-align: center; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; } 
         .footer i { color: #7c3aed; } 
-        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } } 
+        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } } 
         @media (max-width: 480px) { .container { padding: 20px; } .stats { grid-template-columns: 1fr; } } 
     </style> 
 </head> 
@@ -60,170 +64,8 @@
     <h2>?? PROJECT OVERVIEW</h2> 
     <p class="desc-text">On July 29, 2026, a suspicious scam application named <strong>"Kuro"</strong> was installed on a Windows 11 system. The app appeared legitimate but was designed to steal banking credentials and personal data. Static and dynamic analysis were performed using <strong>VirusTotal, Process Explorer, Registry Analysis, and Network Monitoring</strong>.</p> 
     <p class="desc-text">The application was identified as an <strong>Electron-based credential stealer</strong>. It uses <strong>registry persistence, process masquerading, and screen capture</strong> to steal sensitive information. <strong>1 malicious detection</strong> was confirmed on VirusTotal.</p> 
-    <h2>?? KEY FINDINGS</h2> 
+    <h2>??? ARCHITECTURE DIAGRAM</h2> 
     <div class="card"> 
-        <h3>PROCESS CHAIN (OBSERVED)</h3> 
-        <div style="font-family: monospace; color: #a8b8c8; font-size: 14px; line-height: 2;"> 
-            Kuro Setup.exe <span style="color: #7c3aed;">(DROPPER)</span><br> 
-            <span style="color: #666;"></span><br> 
-            Kuro App <span style="color: #7c3aed;">(ELECTRON FRAMEWORK)</span><br> 
-            <span style="color: #666;"></span><br> 
-            splunkd.exe <span style="color: #ff4757;">(MASQUERADING PROCESS)</span><br> 
-            <span style="color: #666;"></span><br> 
-            python.exe <span style="color: #ffa502;">(SCREEN CAPTURE ENGINE)</span> 
-        </div> 
-    </div> 
-    <div class="grid-2"> 
-        <div class="card"> 
-            <h3>??? INDICATORS FOUND</h3> 
-            <ul> 
-                <li><i class="fas fa-globe"></i> <strong>Domain:</strong> trykuro.app</li> 
-                <li><i class="fas fa-ip"></i> <strong>IP Address:</strong> 216.150.1.193</li> 
-                <li><i class="fas fa-file"></i> <strong>Registry Key:</strong> HKLM\Run\kuro</li> 
-                <li><i class="fas fa-cog"></i> <strong>Malicious Process:</strong> splunkd.exe</li> 
-            </ul> 
-        </div> 
-        <div class="card"> 
-            <h3>??? TOOLS USED</h3> 
-            <ul> 
-                <li><i class="fas fa-search"></i> VirusTotal</li> 
-                <li><i class="fas fa-microscope"></i> Process Explorer</li> 
-                <li><i class="fas fa-registry-editor"></i> Registry Editor</li> 
-                <li><i class="fas fa-network-wired"></i> Wireshark</li> 
-                <li><i class="fas fa-tools"></i> Sysinternals Autoruns</li> 
-            </ul> 
-        </div> 
-    </div> 
-    <h2>?? INVESTIGATION TIMELINE</h2> 
-    <div class="timeline"> 
-        <div class="timeline-item"><strong>10:30</strong> - Kuro app installed</div> 
-        <div class="timeline-item"><strong>10:35</strong> - Suspicious activity detected</div> 
-        <div class="timeline-item"><strong>10:36</strong> - Network disconnected <i class="fas fa-check-circle" style="color: #22c55e;"></i></div> 
-        <div class="timeline-item"><strong>10:38</strong> - Admin CMD opened</div> 
-        <div class="timeline-item"><strong>10:40</strong> - Process analysis started</div> 
-        <div class="timeline-item"><strong>10:45</strong> - Malicious processes killed <i class="fas fa-check-circle" style="color: #22c55e;"></i></div> 
-        <div class="timeline-item"><strong>10:48</strong> - Registry entries deleted <i class="fas fa-check-circle" style="color: #22c55e;"></i></div> 
-        <div class="timeline-item"><strong>10:50</strong> - Malware folder removed</div> 
-        <div class="timeline-item"><strong>10:55</strong> - VirusTotal scan initiated</div> 
-        <div class="timeline-item"><strong>11:00</strong> - System rebooted</div> 
-    </div> 
-    <div class="card"> 
-        <table style="width: 100%%; border-collapse: collapse; color: #a8b8c8; font-size: 14px;"> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"> 
-                <th style="text-align: left; padding: 10px; color: #7c3aed;">TACTIC</th> 
-                <th style="text-align: left; padding: 10px; color: #7c3aed;">TECHNIQUE</th> 
-                <th style="text-align: left; padding: 10px; color: #7c3aed;">ID</th> 
-            </tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Execution</td><td style="padding: 10px;">User Execution (Malicious File)</td><td style="padding: 10px; color: #ffa502;">T1204.002</td></tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Persistence</td><td style="padding: 10px;">Registry Run Keys</td><td style="padding: 10px; color: #ffa502;">T1547.001</td></tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Defense Evasion</td><td style="padding: 10px;">Masquerading</td><td style="padding: 10px; color: #ffa502;">T1036</td></tr> 
-            <tr><td style="padding: 10px;">Credential Access</td><td style="padding: 10px;">Credentials from Web Browsers</td><td style="padding: 10px; color: #ffa502;">T1505.001</td></tr> 
-        </table> 
-    </div> 
-    <h2>?? REMEDIATION ACTIONS</h2> 
-    <div class="grid-2"> 
-        <div class="card"> 
-            <h3>IMMEDIATE RESPONSE</h3> 
-            <ul> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Network isolated immediately</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Malicious processes terminated</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Registry persistence removed</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Malware folder deleted</li> 
-            </ul> 
-        </div> 
-        <div class="card"> 
-            <h3>POST-INCIDENT</h3> 
-            <ul> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> All passwords changed</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> 2FA enabled</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Bank accounts monitored</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> IOCs reported to threat intel platforms</li> 
-            </ul> 
-        </div> 
-    </div> 
-    <h2>?? LESSONS LEARNED</h2> 
-    <div class="card"> 
-        <ul> 
-            <li><i class="fas fa-shield" style="color: #7c3aed;"></i> Always verify applications before installation - download only from official sources</li> 
-            <li><i class="fas fa-eye" style="color: #7c3aed;"></i> Monitor processes for masquerading (splunkd.exe was suspicious)</li> 
-            <li><i class="fas fa-registered" style="color: #7c3aed;"></i> Regular registry checks for persistence entries</li> 
-            <li><i class="fas fa-virus" style="color: #7c3aed;"></i> Use multiple antivirus engines (VirusTotal confirmed malicious)</li> 
-            <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> Report suspicious domains to threat intelligence platforms</li> 
-        </ul> 
-    </div> 
-    <div class="btn-group"> 
-        <a href="https://github.com/likith-raj/kuro-scam-investigation" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> VIEW ON GITHUB</a> 
-        <a href="https://likith-raj.github.io/portofolio/" target="_blank" class="btn"><i class="fas fa-arrow-left"></i> BACK TO PORTFOLIO</a> 
-    </div> 
-    <div class="footer"> 
-        <i class="fas fa-copyright"></i> COPY PROTECTED  SOC INVESTIGATION REPORT | BUILT WITH ?? BY LIKITH RAJ</div> 
-</div> 
-=======
-        body { background: #0a0a0f; color: #e0e0e0; min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px; } 
-        .container { max-width: 1000px; width: 100%%; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 50px; backdrop-filter: blur(10px); box-shadow: 0 20px 80px rgba(0,0,0,0.5); } 
-        .header { display: flex; align-items: center; gap: 18px; border-bottom: 2px solid rgba(255,255,255,0.04); padding-bottom: 20px; margin-bottom: 30px; } 
-        .header-icon { width: 56px; height: 56px; background: rgba(124,58,237,0.1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 26px; color: #7c3aed; border: 1px solid rgba(124,58,237,0.1); } 
-        .header h1 { font-size: 24px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #7c3aed, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } 
-        .header .sub { font-size: 11px; color: #666; text-transform: uppercase; letter-spacing: 3px; margin-left: auto; } 
-        .stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); border-radius: 14px; padding: 16px 20px; margin-bottom: 30px; } 
-        .stats-bar .stat { display: flex; align-items: center; gap: 10px; } 
-        .stats-bar .stat i { color: #7c3aed; font-size: 16px; width: 20px; text-align: center; } 
-        .stats-bar .stat .number { font-size: 20px; font-weight: 900; color: #fff; } 
-        .stats-bar .stat .label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; } 
-        .item { display: flex; align-items: center; gap: 18px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 16px; padding: 18px 22px; margin-bottom: 12px; transition: all 0.3s; } 
-        .item:hover { background: rgba(124,58,237,0.04); border-color: rgba(124,58,237,0.15); transform: translateX(6px); } 
-        .item .number { font-size: 18px; font-weight: 900; color: #7c3aed; min-width: 36px; } 
-        .item .content { flex: 1; } 
-        .item .content .title { font-size: 16px; font-weight: 700; color: #e0e0e0; text-transform: uppercase; } 
-        .item .content .title span { background: linear-gradient(135deg, #7c3aed, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } 
-        .item .content .desc { font-size: 12px; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; } 
-        .item .content .desc i { color: #7c3aed; margin-right: 6px; } 
-        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 18px; border-radius: 50px; font-size: 10px; font-weight: 700; text-transform: uppercase; background: rgba(34,197,94,0.1); color: #22c55e; border: 1px solid rgba(34,197,94,0.1); } 
-        .badge-github { background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.1); } 
-        .btn-group { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; } 
-        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 10px; font-size: 13px; font-weight: 700; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(124,58,237,0.2); background: rgba(124,58,237,0.05); color: #a78bfa; transition: all 0.3s; } 
-        .btn:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); transform: translateY(-2px); } 
-        .btn-primary { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.3); color: #7c3aed; } 
-        .btn-primary:hover { background: rgba(124,58,237,0.25); } 
-        .footer-text { margin-top: 30px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.04); text-align: center; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap; } 
-        .footer-text i { color: #7c3aed; } 
-        .copy-protection { position: fixed; bottom: 20px; left: 50%%; transform: translateX(-50%%); font-size: 9px; color: #1a1a1a; letter-spacing: 3px; text-transform: uppercase; user-select: none; pointer-events: none; z-index: 999; } 
-        .copy-protection i { color: #7c3aed; margin-right: 6px; } 
-        @media (max-width: 768px) { .container { padding: 30px; } .stats-bar { grid-template-columns: repeat(2, 1fr); } .item { flex-wrap: wrap; } .header .sub { display: none; } } 
-        @media (max-width: 480px) { .container { padding: 20px; } .stats-bar { grid-template-columns: 1fr; } .item { flex-direction: column; align-items: flex-start; } } 
-    </style> 
-</head> 
-<body> 
-    <div class="container"> 
-        <div class="header"> 
-            <div class="header-icon"><i class="fas fa-skull"></i></div> 
-            <h1>KURO SCAM INVESTIGATION</h1> 
-            <span class="sub"><i class="fas fa-shield-haltered"></i> INCIDENT RESPONSE</span> 
-        </div> 
-        <div class="stats-bar"> 
-            <div class="stat"><i class="fas fa-calendar"></i><span class="number">07/29/2026</span><span class="label">INCIDENT DATE</span></div> 
-            <div class="stat"><i class="fas fa-exclamation-triangle"></i><span class="number">HIGH</span><span class="label">RISK LEVEL</span></div> 
-            <div class="stat"><i class="fas fa-check-circle"></i><span class="number">NEUTRALIZED</span><span class="label">STATUS</span></div> 
-            <div class="stat"><i class="fas fa-clock"></i><span class="number">45 MIN</span><span class="label">RESPONSE TIME</span></div> 
-        </div> 
-        <div class="items"> 
-            <div class="item"><span class="number">01.</span><div class="content"><div class="title"><span>INITIAL DISCOVERY</span></div><div class="desc"><i class="fas fa-eye"></i> Kuro app installed, appeared suspicious, no visible activity</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
-            <div class="item"><span class="number">02.</span><div class="content"><div class="title"><span>INDICATORS FOUND</span></div><div class="desc"><i class="fas fa-bug"></i> splunkd.exe masquerading, Python screen capture, Registry persistence</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
-            <div class="item"><span class="number">03.</span><div class="content"><div class="title"><span>MITIGATION ACTIONS</span></div><div class="desc"><i class="fas fa-shield"></i> Network disconnected, Processes killed, Registry cleaned</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
-            <div class="item"><span class="number">04.</span><div class="content"><div class="title"><span>IOCS EXTRACTED</span></div><div class="desc"><i class="fas fa-list"></i> Domains, IPs, File paths, Registry keys identified</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
-            <div class="item"><span class="number">05.</span><div class="content"><div class="title"><span>VIRUSTOTAL ANALYSIS</span></div><div class="desc"><i class="fas fa-virus"></i> URL submitted, 1 malicious detection confirmed</div></div><span class="badge"><i class="fas fa-check"></i> DONE</span></div> 
-        </div> 
-        <div class="btn-group"> 
-            <a href="https://github.com/likith-raj/kuro-scam-investigation" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> VIEW ON GITHUB</a> 
-            <a href="virustotal-gui/index.html" target="_blank" class="btn"><i class="fas fa-chart-line"></i> LAUNCH VIRUSTOTAL GUI</a> 
-            <a href="scripts/ioc-scanner.py" target="_blank" class="btn"><i class="fas fa-code"></i> IOC SCANNER</a> 
-            <a href="detection-rules/yara-rules.yar" target="_blank" class="btn"><i class="fas fa-file-code"></i> YARA RULES</a> 
-        </div> 
-        <div class="footer-text"> 
-            <i class="fas fa-shield-alt"></i> <span>BUILT WITH ?? BY LIKITH RAJ</span> 
-        </div> 
-    </div> 
-    <div class="copy-protection"><i class="fas fa-copyright"></i> COPY PROTECTED  INCIDENT RESPONSE</div> 
->>>>>>> 33e60774808df1c84d4320cd43ddaab5d56c35ad
-</body> 
-</html> 
+        <pre style="color: #a8b8c8; font-size: 13px; line-height: 1.8; font-family: monospace; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; overflow-x: auto;"> 
+[ Victim's PC ]                                             [ Attacker's Infrastructure ] 
++-----------------------------------------------+           +--------------------------+ 
