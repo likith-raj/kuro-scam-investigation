@@ -52,7 +52,7 @@
     <div class="header"> 
         <div> 
             <h1>KURO SCAM INVESTIGATION</h1> 
-            <div class="sub"><i class="fas fa-bolt"></i> ELECTRON-BASED CREDENTIAL STEALER | INCIDENT RESPONSE</div> 
+            <div class="sub"><i class="fas fa-bolt"></i> THE HONEY TRAP - CREDENTIAL STEALER | INCIDENT RESPONSE</div> 
         </div> 
         <div class="sub"><i class="fas fa-calendar"></i> JULY 2026</div> 
     </div> 
@@ -62,124 +62,34 @@
         <div class="stat"><i class="fas fa-registered"></i><span class="num">3</span><span class="label">PERSISTENCE MECHANISMS</span></div> 
         <div class="stat"><i class="fas fa-clock"></i><span class="num">45 MIN</span><span class="label">RESPONSE TIME</span></div> 
     </div> 
-    <h2>?? INCIDENT OVERVIEW - WHAT HAPPENED</h2> 
+    <h2>?? THE HONEY TRAP - WHAT HAPPENED</h2> 
     <div class="highlight-box"> 
-        <p class="desc-text">I discovered an app called <strong>"Kuro"</strong> that promised to give <strong>money for sharing screen time</strong>. I installed it, shared my screen, and actually received an <strong>Amazon voucher worth ?3,350</strong. But I noticed something suspicious - a process named <strong>splunkd.exe</strong> was running in the background, which I never installed.</p> 
+        <p class="desc-text">I discovered a mobile/web application called <strong>"Kuro"</strong> that promised to give <strong>real money for sharing screen time</strong. The app paid me <strong>?301 as an Amazon voucher</strong> to build trust. However, I noticed something suspicious - a process named <strong>splunkd.exe</strong> was running in the background without my knowledge.</p> 
     </div> 
-    <p class="desc-text">This was a <strong>honey trap</strong> - the app gives you small money to build trust, but in the background, it steals your <strong>screen activity, keystrokes, and browser sessions</strong. The attacker can later use this to steal banking credentials and perform unauthorized transactions.</p> 
-    <h2>?? HOW THE SCAM WORKS</h2> 
-    <div class="card"> 
-        <h3>THE HONEY TRAP TECHNIQUE</h3> 
-        <ul> 
-            <li><i class="fas fa-gift" style="color: #22c55e;"></i> <strong>Bait:</strong> "Earn money by sharing screen" - looks legit</li> 
-            <li><i class="fas fa-money-bill-wave" style="color: #22c55e;"></i> <strong>Reward:</strong> ?3,350 Amazon voucher (real money to build trust)</li> 
-            <li><i class="fas fa-desktop" style="color: #ffa502;"></i> <strong>Hidden:</strong> splunkd.exe runs in background (masquerading)</li> 
-            <li><i class="fas fa-keyboard" style="color: #ff4757;"></i> <strong>Stealing:</strong> Screen captures + keystroke logging</li> 
-            <li><i class="fas fa-database" style="color: #ff4757;"></i> <strong>Exfiltration:</strong> Data sent to C2 server in real-time</li> 
-        </ul> 
-    </div> 
-    <h2>??? ATTACK ARCHITECTURE</h2> 
-    <div class="card"> 
-        <pre style="color: #a8b8c8; font-size: 13px; line-height: 2; font-family: monospace; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;"> 
-[VICTIM PC]                                    [ATTACKER INFRASTRUCTURE] 
- - Kuro App (Electron)                          - C2 Command Server 
-      +--> splunkd.exe (Masquerading)           - Receives Session Cookies 
-             +--> Python Script (Capture)        - Media Streaming Server 
-                    - Screen Frames                - Live Screen Feed 
-                    - Keystrokes                   - Key Logs 
-                    - Browser Cookies              - Session Hijacking 
-        </pre> 
-    </div> 
-    <h2>?? SCREENSHOTS</h2> 
-    <div class="screenshot-grid"> 
-        <div class="screenshot-card"> 
-            <img src="screenshots/screenshot1-kuro-app.png" alt="Kuro App"> 
-            <p>1. Kuro App - Money Earning Interface</p> 
-        </div> 
-        <div class="screenshot-card"> 
-            <img src="screenshots/screenshot2-download.png" alt="Download"> 
-            <p>2. Download Page - trykuro.app</p> 
-        </div> 
-        <div class="screenshot-card"> 
-            <img src="screenshots/screenshot3-install.png" alt="Installation"> 
-            <p>3. Installation Process</p> 
-        </div> 
-        <div class="screenshot-card"> 
-            <img src="screenshots/screenshot4-giftcard.png" alt="Amazon Voucher"> 
-            <p>4. Amazon Voucher - ?3,350 Received</p> 
-        </div> 
-        <div class="screenshot-card"> 
-            <img src="screenshots/screenshot5-processes.png" alt="splunkd.exe Process"> 
-            <p>5. Task Manager - splunkd.exe Running</p> 
-        </div> 
-        <div class="screenshot-card"> 
-            <img src="screenshots/screenshot6-registry.png" alt="Registry Persistence"> 
-            <p>6. Registry - Run Key Persistence</p> 
-        </div> 
-        <div class="screenshot-card"> 
-            <img src="screenshots/screenshot7-virustotal.png" alt="VirusTotal"> 
-            <p>7. VirusTotal - Malicious Detection</p> 
-        </div> 
-    </div> 
-    <h2>??? INDICATORS OF COMPROMISE</h2> 
-    <div class="grid-2"> 
-        <div class="card"> 
-            <h3>NETWORK INDICATORS</h3> 
-            <ul> 
-                <li><i class="fas fa-globe"></i> Domain: trykuro.app</li> 
-                <li><i class="fas fa-ip"></i> IP: 216.150.1.193</li> 
-                <li><i class="fas fa-shield"></i> C2 Communication: HTTPS + WebSockets</li> 
-            </ul> 
-        </div> 
-        <div class="card"> 
-            <h3>HOST INDICATORS</h3> 
-            <ul> 
-                <li><i class="fas fa-cog"></i> Process: splunkd.exe (masquerading)</li> 
-                <li><i class="fas fa-registered"></i> Registry: HKLM\Run\kuro</li> 
-                <li><i class="fas fa-folder"></i> Path: C:\Users\hp\AppData\Roaming%\kuro</li> 
-            </ul> 
-        </div> 
-    </div> 
-    <h2>?? INVESTIGATION TIMELINE</h2> 
-    <div class="timeline"> 
-        <div class="timeline-item"><strong>10:30</strong> - Discovered Kuro app - promised money for screen sharing</div> 
-        <div class="timeline-item"><strong>10:32</strong> - Downloaded and installed Kuro app</div> 
-        <div class="timeline-item"><strong>10:35</strong> - Shared screen and received ?3,350 Amazon voucher</div> 
-        <div class="timeline-item"><strong>10:38</strong> - Noticed splunkd.exe running (suspicious)</div> 
-        <div class="timeline-item"><strong>10:40</strong> - Network disconnected immediately</div> 
-        <div class="timeline-item"><strong>10:42</strong> - Admin CMD opened for investigation</div> 
-        <div class="timeline-item"><strong>10:45</strong> - splunkd.exe and python.exe terminated</div> 
-        <div class="timeline-item"><strong>10:48</strong> - Registry Run key deleted</div> 
-        <div class="timeline-item"><strong>10:50</strong> - Malware folder removed</div> 
-        <div class="timeline-item"><strong>10:55</strong> - VirusTotal scan confirmed malicious</div> 
-        <div class="timeline-item"><strong>11:00</strong> - All passwords changed and 2FA enabled</div> 
-    </div> 
-    <h2>?? REMEDIATION ACTIONS</h2> 
-    <div class="grid-2"> 
-        <div class="card"> 
-            <h3>?? IMMEDIATE ACTIONS</h3> 
-            <ul> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Network isolated immediately</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Registry persistence removed</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Malware folder deleted</li> 
-            </ul> 
-        </div> 
-        <div class="card"> 
-            <h3>?? POST-INCIDENT</h3> 
-            <ul> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> All passwords changed</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> All passwords changed immediately</li> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> 2FA enabled on all accounts</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Bank accounts monitored</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Cyber Crime complaint filed</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Bank accounts monitored for suspicious activity</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Gift card value (?301) reported to Cyber Crime</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> IOCs reported to threat intelligence platforms</li> 
             </ul> 
         </div> 
+    </div> 
+    <h2>?? WHY I DID THIS INVESTIGATION</h2> 
+    <div class="card"> 
+        <ul> 
+            <li><i class="fas fa-shield" style="color: #7c3aed;"></i> <strong>To expose the honey trap technique</strong> - How attackers use real money to build trust</li> 
+            <li><i class="fas fa-eye" style="color: #7c3aed;"></i> <strong>To document the full attack chain</strong> - From installation to data exfiltration</li> 
+            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>To warn others about "too good to be true" apps</strong> - ?301 was the bait</li> 
+            <li><i class="fas fa-virus" style="color: #7c3aed;"></i> <strong>To share remediation steps</strong> - So others can protect themselves</li> 
+            <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> <strong>To build a real incident response case study</strong> - For SOC portfolio</li> 
+        </ul> 
     </div> 
     <h2>?? LESSONS LEARNED</h2> 
     <div class="card"> 
         <ul> 
             <li><i class="fas fa-shield" style="color: #7c3aed;"></i> <strong>If it sounds too good to be true, it probably is</strong> - Money for screen sharing is a red flag</li> 
             <li><i class="fas fa-eye" style="color: #7c3aed;"></i> <strong>Always check running processes</strong> - splunkd.exe was the giveaway</li> 
-            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>Real money can be used as bait</strong> - ?3,350 was to build trust</li> 
+            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>Real money can be used as bait</strong> - ?301 was to gain trust before the big steal</li> 
             <li><i class="fas fa-virus" style="color: #7c3aed;"></i> <strong>Verify before installing</strong> - Always check app reviews and reputation</li> 
             <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> <strong>Report suspicious activity</strong> - Helps others avoid the same trap</li> 
         </ul> 
