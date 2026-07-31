@@ -6,9 +6,9 @@
     <title>Kuro Scam - Malware Investigation</title> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
     <style> 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; } 
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; } 
         body { background: #0a0a0f; color: #e0e0e0; padding: 40px 20px; } 
-        .container { max-width: 1200px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 50px; box-shadow: 0 20px 80px rgba(0,0,0,0.5); } 
+        .container { max-width: 1100px; margin: 0 auto; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; padding: 50px; box-shadow: 0 20px 80px rgba(0,0,0,0.5); } 
         .case-badge { display: inline-block; padding: 6px 18px; border-radius: 50px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.1); margin-bottom: 20px; } 
         .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; flex-wrap: wrap; gap: 20px; } 
         .header h1 { font-size: 32px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; background: linear-gradient(135deg, #7c3aed, #06b6d4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; } 
@@ -27,10 +27,11 @@
         .card ul { list-style: none; padding: 0; } 
         .card ul li { padding: 6px 0; color: #a8b8c8; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,0.03); } 
         .card ul li i { color: #7c3aed; margin-right: 8px; width: 16px; } 
-        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 15px 0; } 
-        .screenshot-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 15px; text-align: center; } 
-        .screenshot-card img { max-width: 100%%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); } 
-        .screenshot-card p { color: #666; font-size: 12px; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; } 
+        .screenshot-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 15px 0; } 
+        .screenshot-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; padding: 12px; text-align: center; transition: all 0.3s; } 
+        .screenshot-card:hover { transform: translateY(-4px); border-color: rgba(124,58,237,0.2); } 
+        .screenshot-card img { width: 100%%; height: 150px; object-fit: cover; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); } 
+        .screenshot-card p { color: #666; font-size: 10px; margin-top: 8px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; } 
         .btn-group { display: flex; gap: 12px; margin: 25px 0; flex-wrap: wrap; } 
         .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 10px; font-size: 12px; font-weight: 700; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(124,58,237,0.2); background: rgba(124,58,237,0.05); color: #a78bfa; transition: all 0.3s; } 
         .btn:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); transform: translateY(-2px); } 
@@ -38,8 +39,9 @@
         .btn-primary:hover { background: rgba(124,58,237,0.25); } 
         .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.04); text-align: center; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; } 
         .footer i { color: #7c3aed; } 
-        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } } 
-        @media (max-width: 480px) { .container { padding: 20px; } .stats { grid-template-columns: 1fr; } } 
+        @media (max-width: 1024px) { .screenshot-grid { grid-template-columns: repeat(2, 1fr); } } 
+        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } .screenshot-grid { grid-template-columns: repeat(2, 1fr); } .screenshot-card img { height: 120px; } } 
+        @media (max-width: 480px) { .container { padding: 20px; } .stats { grid-template-columns: 1fr; } .screenshot-grid { grid-template-columns: 1fr; } .screenshot-card img { height: 180px; } .header h1 { font-size: 20px; } .btn { width: 100%%; justify-content: center; } } 
     </style> 
 </head> 
 <body> 
@@ -59,19 +61,19 @@
         <div class="stat"><i class="fas fa-clock"></i><span class="num">45 MIN</span><span class="label">RESPONSE TIME</span></div> 
     </div> 
     <h2>?? PROJECT OVERVIEW</h2> 
-    <p class="desc-text">On July 29, 2026, a suspicious scam application named <strong>"Kuro"</strong> was installed on a Windows 11 system. The app appeared legitimate but was designed to steal banking credentials and personal data. Static and dynamic analysis were performed using <strong>VirusTotal, Process Explorer, Registry Analysis, and Network Monitoring</strong>.</p> 
-    <p class="desc-text">The application was identified as an <strong>Electron-based credential stealer</strong>. It uses <strong>registry persistence, process masquerading, and screen capture</strong> to steal sensitive information. <strong>1 malicious detection</strong> was confirmed on VirusTotal.</p> 
+    <p class="desc-text">ON JULY 29, 2026, A SUSPICIOUS SCAM APPLICATION NAMED <strong>"KURO"</strong> WAS INSTALLED ON A WINDOWS 11 SYSTEM. THE APP APPEARED LEGITIMATE BUT WAS DESIGNED TO STEAL BANKING CREDENTIALS AND PERSONAL DATA. STATIC AND DYNAMIC ANALYSIS WERE PERFORMED USING <strong>VIRUSTOTAL, PROCESS EXPLORER, REGISTRY ANALYSIS, AND NETWORK MONITORING</strong.</p> 
+    <p class="desc-text">THE APPLICATION WAS IDENTIFIED AS AN <strong>ELECTRON-BASED CREDENTIAL STEALER</strong. IT USES <strong>REGISTRY PERSISTENCE, PROCESS MASQUERADING, AND SCREEN CAPTURE</strong> TO STEAL SENSITIVE INFORMATION. <strong>1 MALICIOUS DETECTION</strong> WAS CONFIRMED ON VIRUSTOTAL.</p> 
     <h2>?? KEY FINDINGS</h2> 
     <div class="card"> 
         <h3>PROCESS CHAIN (OBSERVED IN ANY.RUN)</h3> 
         <div style="font-family: monospace; color: #a8b8c8; font-size: 14px; line-height: 2.5;"> 
-            Kuro Setup.exe <span style="color: #7c3aed;">(DROPPER)</span><br> 
+            KURO SETUP.EXE <span style="color: #7c3aed;">(DROPPER)</span><br> 
             <span style="color: #666;"></span><br> 
-            Kuro App <span style="color: #7c3aed;">(ELECTRON FRAMEWORK)</span><br> 
+            KURO APP <span style="color: #7c3aed;">(ELECTRON FRAMEWORK)</span><br> 
             <span style="color: #666;"></span><br> 
-            splunkd.exe <span style="color: #ff4757;">(MASQUERADING PROCESS)</span><br> 
+            SPLUNKD.EXE <span style="color: #ff4757;">(MASQUERADING PROCESS)</span><br> 
             <span style="color: #666;"></span><br> 
-            python.exe <span style="color: #ffa502;">(SCREEN CAPTURE ENGINE)</span> 
+            PYTHON.EXE <span style="color: #ffa502;">(SCREEN CAPTURE ENGINE)</span> 
         </div> 
     </div> 
     <h2>??? INDICATORS OF COMPROMISE</h2> 
@@ -79,37 +81,37 @@
         <div class="card"> 
             <h3>NETWORK INDICATORS</h3> 
             <ul> 
-                <li><i class="fas fa-globe"></i> Domain: trykuro.app</li> 
-                <li><i class="fas fa-ip"></i> IP Address: 216.150.1.193</li> 
-                <li><i class="fas fa-shield"></i> C2 Communication: HTTPS + WebSockets</li> 
+                <li><i class="fas fa-globe"></i> DOMAIN: TRYKURO.APP</li> 
+                <li><i class="fas fa-ip"></i> IP ADDRESS: 216.150.1.193</li> 
+                <li><i class="fas fa-shield"></i> C2 COMMUNICATION: HTTPS + WEBSOCKETS</li> 
             </ul> 
         </div> 
         <div class="card"> 
             <h3>HOST INDICATORS</h3> 
             <ul> 
-                <li><i class="fas fa-cog"></i> Process: splunkd.exe (masquerading)</li> 
-                <li><i class="fas fa-registered"></i> Registry: HKLM\Run\kuro</li> 
-                <li><i class="fas fa-folder"></i> File Path: C:\Users\hp\AppData\Roaming%\kuro</li> 
+                <li><i class="fas fa-cog"></i> PROCESS: SPLUNKD.EXE (MASQUERADING)</li> 
+                <li><i class="fas fa-registered"></i> REGISTRY: HKLM\RUN\KURO</li> 
+                <li><i class="fas fa-folder"></i> FILE PATH: C:\Users\hp\AppData\Roaming%\KURO</li> 
             </ul> 
         </div> 
     </div> 
     <h2>?? SCREENSHOTS</h2> 
     <div class="screenshot-grid"> 
         <div class="screenshot-card"> 
-            <img src="screenshots/kuroapp.png.png" alt="Kuro App Interface"> 
-            <p>Kuro App Interface | Money Earning Page</p> 
+            <img src="screenshots/kuroapp.png.png" alt="Kuro App"> 
+            <p>KURO APP INTERFACE | MONEY EARNING PAGE</p> 
         </div> 
         <div class="screenshot-card"> 
-            <img src="screenshots/money.png.png" alt="Money Earning"> 
-            <p>Money Earning | ?301 Earned</p> 
+            <img src="screenshots/money.png.png" alt="Money"> 
+            <p>MONEY EARNING | ?301 EARNED</p> 
         </div> 
         <div class="screenshot-card"> 
-            <img src="screenshots/giftcard.png.png" alt="Amazon Voucher"> 
-            <p>Amazon Voucher | ?301 Received</p> 
+            <img src="screenshots/giftcard.png.png" alt="Gift Card"> 
+            <p>AMAZON VOUCHER | ?301 RECEIVED</p> 
         </div> 
         <div class="screenshot-card"> 
-            <img src="screenshots/virustotal.png.png" alt="VirusTotal Report"> 
-            <p>VirusTotal Report | Malicious Detection</p> 
+            <img src="screenshots/virustotal.png.png" alt="VirusTotal"> 
+            <p>VIRUSTOTAL REPORT | MALICIOUS DETECTION</p> 
         </div> 
     </div> 
     <div class="card"> 
@@ -119,12 +121,12 @@
                 <th style="text-align: left; padding: 10px; color: #7c3aed;">TECHNIQUE</th> 
                 <th style="text-align: left; padding: 10px; color: #7c3aed;">ID</th> 
             </tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Execution</td><td style="padding: 10px;">User Execution (Malicious File)</td><td style="padding: 10px; color: #ffa502;">T1204.002</td></tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Persistence</td><td style="padding: 10px;">Registry Run Keys</td><td style="padding: 10px; color: #ffa502;">T1547.001</td></tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Defense Evasion</td><td style="padding: 10px;">Masquerading</td><td style="padding: 10px; color: #ffa502;">T1036</td></tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Credential Access</td><td style="padding: 10px;">Credentials from Web Browsers</td><td style="padding: 10px; color: #ffa502;">T1505.001</td></tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Collection</td><td style="padding: 10px;">Screen Capture</td><td style="padding: 10px; color: #ffa502;">T1113</td></tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">Exfiltration</td><td style="padding: 10px;">Exfiltration Over C2 Channel</td><td style="padding: 10px; color: #ffa502;">T1041</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">EXECUTION</td><td style="padding: 10px;">USER EXECUTION (MALICIOUS FILE)</td><td style="padding: 10px; color: #ffa502;">T1204.002</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">PERSISTENCE</td><td style="padding: 10px;">REGISTRY RUN KEYS</td><td style="padding: 10px; color: #ffa502;">T1547.001</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">DEFENSE EVASION</td><td style="padding: 10px;">MASQUERADING</td><td style="padding: 10px; color: #ffa502;">T1036</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">CREDENTIAL ACCESS</td><td style="padding: 10px;">CREDENTIALS FROM WEB BROWSERS</td><td style="padding: 10px; color: #ffa502;">T1505.001</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">COLLECTION</td><td style="padding: 10px;">SCREEN CAPTURE</td><td style="padding: 10px; color: #ffa502;">T1113</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">EXFILTRATION</td><td style="padding: 10px;">EXFILTRATION OVER C2 CHANNEL</td><td style="padding: 10px; color: #ffa502;">T1041</td></tr> 
         </table> 
     </div> 
     <h2>?? REMEDIATION ACTIONS</h2> 
@@ -132,21 +134,21 @@
         <div class="card"> 
             <h3>?? IMMEDIATE ACTIONS TAKEN</h3> 
             <ul> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Network isolated immediately</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> splunkd.exe and python.exe terminated</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Registry persistence entries deleted</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Malware folder removed from AppData</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> System rebooted to clear socket buffers</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> NETWORK ISOLATED IMMEDIATELY</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> SPLUNKD.EXE AND PYTHON.EXE TERMINATED</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> REGISTRY PERSISTENCE ENTRIES DELETED</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> MALWARE FOLDER REMOVED FROM APPDATA</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> SYSTEM REBOOTED TO CLEAR SOCKET BUFFERS</li> 
             </ul> 
         </div> 
         <div class="card"> 
             <h3>?? POST-INCIDENT SECURITY</h3> 
             <ul> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> All passwords changed immediately</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> 2FA enabled on all accounts</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Bank accounts monitored for suspicious activity</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Gift card value (?301) reported to Cyber Crime</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> IOCs reported to threat intelligence platforms</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> ALL PASSWORDS CHANGED IMMEDIATELY</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> 2FA ENABLED ON ALL ACCOUNTS</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> BANK ACCOUNTS MONITORED FOR SUSPICIOUS ACTIVITY</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> GIFT CARD VALUE (?301) REPORTED TO CYBER CRIME</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> IOCS REPORTED TO THREAT INTELLIGENCE PLATFORMS</li> 
             </ul> 
         </div> 
     </div> 
@@ -154,32 +156,32 @@
         <div class="card"> 
             <h3>TOOLS USED</h3> 
             <ul> 
-                <li><i class="fas fa-search"></i> VirusTotal</li> 
-                <li><i class="fas fa-microscope"></i> Process Explorer</li> 
-                <li><i class="fas fa-registry-editor"></i> Registry Editor</li> 
-                <li><i class="fas fa-network-wired"></i> Wireshark</li> 
-                <li><i class="fas fa-tools"></i> Sysinternals Autoruns</li> 
+                <li><i class="fas fa-search"></i> VIRUSTOTAL</li> 
+                <li><i class="fas fa-microscope"></i> PROCESS EXPLORER</li> 
+                <li><i class="fas fa-registry-editor"></i> REGISTRY EDITOR</li> 
+                <li><i class="fas fa-network-wired"></i> WIRESHARK</li> 
+                <li><i class="fas fa-tools"></i> SYSINTERNALS AUTORUNS</li> 
             </ul> 
         </div> 
         <div class="card"> 
             <h3>SKILLS DEMONSTRATED</h3> 
             <ul> 
-                <li><i class="fas fa-shield"></i> Malware Analysis</li> 
-                <li><i class="fas fa-eye"></i> Incident Response</li> 
-                <li><i class="fas fa-bug"></i> Process Analysis</li> 
-                <li><i class="fas fa-network-wired"></i> Network Analysis</li> 
-                <li><i class="fas fa-registered"></i> Registry Analysis</li> 
+                <li><i class="fas fa-shield"></i> MALWARE ANALYSIS</li> 
+                <li><i class="fas fa-eye"></i> INCIDENT RESPONSE</li> 
+                <li><i class="fas fa-bug"></i> PROCESS ANALYSIS</li> 
+                <li><i class="fas fa-network-wired"></i> NETWORK ANALYSIS</li> 
+                <li><i class="fas fa-registered"></i> REGISTRY ANALYSIS</li> 
             </ul> 
         </div> 
     </div> 
     <h2>?? LESSONS LEARNED</h2> 
     <div class="card"> 
         <ul> 
-            <li><i class="fas fa-shield" style="color: #7c3aed;"></i> <strong>If it sounds too good to be true, it probably is</strong> - Money for screen sharing is a red flag</li> 
-            <li><i class="fas fa-eye" style="color: #7c3aed;"></i> <strong>Always check running processes</strong> - splunkd.exe was the giveaway</li> 
-            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>Real money can be used as bait</strong> - ?301 was to gain trust before the big steal</li> 
-            <li><i class="fas fa-virus" style="color: #7c3aed;"></i> <strong>Verify before installing</strong> - Always check app reviews and reputation</li> 
-            <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> <strong>Report suspicious activity</strong> - Helps others avoid the same trap</li> 
+            <li><i class="fas fa-shield" style="color: #7c3aed;"></i> <strong>IF IT SOUNDS TOO GOOD TO BE TRUE, IT PROBABLY IS</strong> - MONEY FOR SCREEN SHARING IS A RED FLAG</li> 
+            <li><i class="fas fa-eye" style="color: #7c3aed;"></i> <strong>ALWAYS CHECK RUNNING PROCESSES</strong> - SPLUNKD.EXE WAS THE GIVEAWAY</li> 
+            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>REAL MONEY CAN BE USED AS BAIT</strong> - ?301 WAS TO GAIN TRUST BEFORE THE BIG STEAL</li> 
+            <li><i class="fas fa-virus" style="color: #7c3aed;"></i> <strong>VERIFY BEFORE INSTALLING</strong> - ALWAYS CHECK APP REVIEWS AND REPUTATION</li> 
+            <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> <strong>REPORT SUSPICIOUS ACTIVITY</strong> - HELPS OTHERS AVOID THE SAME TRAP</li> 
         </ul> 
     </div> 
     <div class="btn-group"> 
