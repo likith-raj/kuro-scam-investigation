@@ -20,8 +20,9 @@
         .stats .stat .label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; } 
         h2 { color: #7c3aed; font-size: 20px; margin: 30px 0 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(124,58,237,0.1); padding-bottom: 10px; } 
         .desc-text { color: #a8b8c8; line-height: 1.8; font-size: 15px; margin-bottom: 20px; } 
+        .highlight-box { background: rgba(124,58,237,0.05); border-left: 4px solid #7c3aed; padding: 15px 20px; border-radius: 8px; margin: 15px 0; } 
+        .highlight-box strong { color: #7c3aed; } 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0; } 
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 15px 0; } 
         .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 20px; } 
         .card h3 { color: #e0e0e0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; } 
         .card ul { list-style: none; padding: 0; } 
@@ -35,13 +36,13 @@
         .btn:hover { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.4); transform: translateY(-2px); } 
         .btn-primary { background: rgba(124,58,237,0.15); border-color: rgba(124,58,237,0.3); color: #7c3aed; } 
         .btn-primary:hover { background: rgba(124,58,237,0.25); } 
-        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 15px 0; } 
+        .screenshot-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 15px 0; } 
         .screenshot-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 15px; text-align: center; } 
         .screenshot-card img { max-width: 100%%; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); } 
         .screenshot-card p { color: #666; font-size: 12px; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; } 
         .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.04); text-align: center; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; } 
         .footer i { color: #7c3aed; } 
-        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } } 
+        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(2, 1fr); } .grid-2 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } } 
         @media (max-width: 480px) { .container { padding: 20px; } .stats { grid-template-columns: 1fr; } } 
     </style> 
 </head> 
@@ -61,11 +62,134 @@
         <div class="stat"><i class="fas fa-registered"></i><span class="num">3</span><span class="label">PERSISTENCE MECHANISMS</span></div> 
         <div class="stat"><i class="fas fa-clock"></i><span class="num">45 MIN</span><span class="label">RESPONSE TIME</span></div> 
     </div> 
-    <h2>?? PROJECT OVERVIEW</h2> 
-    <p class="desc-text">On July 29, 2026, a suspicious scam application named <strong>"Kuro"</strong> was installed on a Windows 11 system. The app appeared legitimate but was designed to steal banking credentials and personal data. Static and dynamic analysis were performed using <strong>VirusTotal, Process Explorer, Registry Analysis, and Network Monitoring</strong>.</p> 
-    <p class="desc-text">The application was identified as an <strong>Electron-based credential stealer</strong>. It uses <strong>registry persistence, process masquerading, and screen capture</strong> to steal sensitive information. <strong>1 malicious detection</strong> was confirmed on VirusTotal.</p> 
-    <h2>??? ARCHITECTURE DIAGRAM</h2> 
+    <h2>?? INCIDENT OVERVIEW - WHAT HAPPENED</h2> 
+    <div class="highlight-box"> 
+        <p class="desc-text">I discovered an app called <strong>"Kuro"</strong> that promised to give <strong>money for sharing screen time</strong>. I installed it, shared my screen, and actually received an <strong>Amazon voucher worth ?3,350</strong. But I noticed something suspicious - a process named <strong>splunkd.exe</strong> was running in the background, which I never installed.</p> 
+    </div> 
+    <p class="desc-text">This was a <strong>honey trap</strong> - the app gives you small money to build trust, but in the background, it steals your <strong>screen activity, keystrokes, and browser sessions</strong. The attacker can later use this to steal banking credentials and perform unauthorized transactions.</p> 
+    <h2>?? HOW THE SCAM WORKS</h2> 
     <div class="card"> 
-        <pre style="color: #a8b8c8; font-size: 13px; line-height: 1.8; font-family: monospace; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; overflow-x: auto;"> 
-[ Victim's PC ]                                             [ Attacker's Infrastructure ] 
-+-----------------------------------------------+           +--------------------------+ 
+        <h3>THE HONEY TRAP TECHNIQUE</h3> 
+        <ul> 
+            <li><i class="fas fa-gift" style="color: #22c55e;"></i> <strong>Bait:</strong> "Earn money by sharing screen" - looks legit</li> 
+            <li><i class="fas fa-money-bill-wave" style="color: #22c55e;"></i> <strong>Reward:</strong> ?3,350 Amazon voucher (real money to build trust)</li> 
+            <li><i class="fas fa-desktop" style="color: #ffa502;"></i> <strong>Hidden:</strong> splunkd.exe runs in background (masquerading)</li> 
+            <li><i class="fas fa-keyboard" style="color: #ff4757;"></i> <strong>Stealing:</strong> Screen captures + keystroke logging</li> 
+            <li><i class="fas fa-database" style="color: #ff4757;"></i> <strong>Exfiltration:</strong> Data sent to C2 server in real-time</li> 
+        </ul> 
+    </div> 
+    <h2>??? ATTACK ARCHITECTURE</h2> 
+    <div class="card"> 
+        <pre style="color: #a8b8c8; font-size: 13px; line-height: 2; font-family: monospace; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;"> 
+[VICTIM PC]                                    [ATTACKER INFRASTRUCTURE] 
+ - Kuro App (Electron)                          - C2 Command Server 
+      +--> splunkd.exe (Masquerading)           - Receives Session Cookies 
+             +--> Python Script (Capture)        - Media Streaming Server 
+                    - Screen Frames                - Live Screen Feed 
+                    - Keystrokes                   - Key Logs 
+                    - Browser Cookies              - Session Hijacking 
+        </pre> 
+    </div> 
+    <h2>?? SCREENSHOTS</h2> 
+    <div class="screenshot-grid"> 
+        <div class="screenshot-card"> 
+            <img src="screenshots/screenshot1-kuro-app.png" alt="Kuro App"> 
+            <p>1. Kuro App - Money Earning Interface</p> 
+        </div> 
+        <div class="screenshot-card"> 
+            <img src="screenshots/screenshot2-download.png" alt="Download"> 
+            <p>2. Download Page - trykuro.app</p> 
+        </div> 
+        <div class="screenshot-card"> 
+            <img src="screenshots/screenshot3-install.png" alt="Installation"> 
+            <p>3. Installation Process</p> 
+        </div> 
+        <div class="screenshot-card"> 
+            <img src="screenshots/screenshot4-giftcard.png" alt="Amazon Voucher"> 
+            <p>4. Amazon Voucher - ?3,350 Received</p> 
+        </div> 
+        <div class="screenshot-card"> 
+            <img src="screenshots/screenshot5-processes.png" alt="splunkd.exe Process"> 
+            <p>5. Task Manager - splunkd.exe Running</p> 
+        </div> 
+        <div class="screenshot-card"> 
+            <img src="screenshots/screenshot6-registry.png" alt="Registry Persistence"> 
+            <p>6. Registry - Run Key Persistence</p> 
+        </div> 
+        <div class="screenshot-card"> 
+            <img src="screenshots/screenshot7-virustotal.png" alt="VirusTotal"> 
+            <p>7. VirusTotal - Malicious Detection</p> 
+        </div> 
+    </div> 
+    <h2>??? INDICATORS OF COMPROMISE</h2> 
+    <div class="grid-2"> 
+        <div class="card"> 
+            <h3>NETWORK INDICATORS</h3> 
+            <ul> 
+                <li><i class="fas fa-globe"></i> Domain: trykuro.app</li> 
+                <li><i class="fas fa-ip"></i> IP: 216.150.1.193</li> 
+                <li><i class="fas fa-shield"></i> C2 Communication: HTTPS + WebSockets</li> 
+            </ul> 
+        </div> 
+        <div class="card"> 
+            <h3>HOST INDICATORS</h3> 
+            <ul> 
+                <li><i class="fas fa-cog"></i> Process: splunkd.exe (masquerading)</li> 
+                <li><i class="fas fa-registered"></i> Registry: HKLM\Run\kuro</li> 
+                <li><i class="fas fa-folder"></i> Path: C:\Users\hp\AppData\Roaming%\kuro</li> 
+            </ul> 
+        </div> 
+    </div> 
+    <h2>?? INVESTIGATION TIMELINE</h2> 
+    <div class="timeline"> 
+        <div class="timeline-item"><strong>10:30</strong> - Discovered Kuro app - promised money for screen sharing</div> 
+        <div class="timeline-item"><strong>10:32</strong> - Downloaded and installed Kuro app</div> 
+        <div class="timeline-item"><strong>10:35</strong> - Shared screen and received ?3,350 Amazon voucher</div> 
+        <div class="timeline-item"><strong>10:38</strong> - Noticed splunkd.exe running (suspicious)</div> 
+        <div class="timeline-item"><strong>10:40</strong> - Network disconnected immediately</div> 
+        <div class="timeline-item"><strong>10:42</strong> - Admin CMD opened for investigation</div> 
+        <div class="timeline-item"><strong>10:45</strong> - splunkd.exe and python.exe terminated</div> 
+        <div class="timeline-item"><strong>10:48</strong> - Registry Run key deleted</div> 
+        <div class="timeline-item"><strong>10:50</strong> - Malware folder removed</div> 
+        <div class="timeline-item"><strong>10:55</strong> - VirusTotal scan confirmed malicious</div> 
+        <div class="timeline-item"><strong>11:00</strong> - All passwords changed and 2FA enabled</div> 
+    </div> 
+    <h2>?? REMEDIATION ACTIONS</h2> 
+    <div class="grid-2"> 
+        <div class="card"> 
+            <h3>?? IMMEDIATE ACTIONS</h3> 
+            <ul> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Network isolated immediately</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Registry persistence removed</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Malware folder deleted</li> 
+            </ul> 
+        </div> 
+        <div class="card"> 
+            <h3>?? POST-INCIDENT</h3> 
+            <ul> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> All passwords changed</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> 2FA enabled on all accounts</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Bank accounts monitored</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> Cyber Crime complaint filed</li> 
+            </ul> 
+        </div> 
+    </div> 
+    <h2>?? LESSONS LEARNED</h2> 
+    <div class="card"> 
+        <ul> 
+            <li><i class="fas fa-shield" style="color: #7c3aed;"></i> <strong>If it sounds too good to be true, it probably is</strong> - Money for screen sharing is a red flag</li> 
+            <li><i class="fas fa-eye" style="color: #7c3aed;"></i> <strong>Always check running processes</strong> - splunkd.exe was the giveaway</li> 
+            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>Real money can be used as bait</strong> - ?3,350 was to build trust</li> 
+            <li><i class="fas fa-virus" style="color: #7c3aed;"></i> <strong>Verify before installing</strong> - Always check app reviews and reputation</li> 
+            <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> <strong>Report suspicious activity</strong> - Helps others avoid the same trap</li> 
+        </ul> 
+    </div> 
+    <div class="btn-group"> 
+        <a href="https://github.com/likith-raj/kuro-scam-investigation" target="_blank" class="btn btn-primary"><i class="fab fa-github"></i> VIEW ON GITHUB</a> 
+        <a href="https://likith-raj.github.io/portofolio/" target="_blank" class="btn"><i class="fas fa-arrow-left"></i> BACK TO PORTFOLIO</a> 
+    </div> 
+    <div class="footer"> 
+        <i class="fas fa-copyright"></i> COPY PROTECTED  SOC INVESTIGATION REPORT | BUILT WITH ?? BY LIKITH RAJ</div> 
+</div> 
+</body> 
+</html> 
