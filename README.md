@@ -94,3 +94,12 @@ This investigation was conducted for educational purposes.
  
 --- 
 **Built with ?? by Likith Raj** 
+"" 
+"## ??? VirusTotal GUI" 
+"A beautiful web-based GUI for analyzing URLs using VirusTotal API." 
+"" 
+"### Quick Start" 
+"1. Install dependencies: \`pip install -r virustotal-gui/requirements.txt\`" 
+"2. Replace API key in \`virustotal-gui/api/vt_api.py\`" 
+"3. Run backend: \`python virustotal-gui/api/vt_api.py\`" 
+"4. Open \`virustotal-gui/index.html\` in browser" 
