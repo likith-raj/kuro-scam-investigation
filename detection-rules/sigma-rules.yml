@@ -1,0 +1,16 @@
+# Sigma Rule - Kuro Scam Detection 
+title: Kuro Scam Malware Detection 
+status: stable 
+description: Detects indicators of Kuro scam malware 
+author: Likith Raj 
+date: 2026-07-29 
+logsource: 
+  product: windows 
+  service: sysmon 
+detection: 
+  selection1: 
+    EventID: 1 
+  selection2: 
+    EventID: 13 
+  condition: selection1 or selection2 
+level: high 

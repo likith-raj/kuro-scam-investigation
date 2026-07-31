@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>VirusTotal Analyzer</title> 
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> 
+</head> 
+<body> 
+    <div class="container"> 
+        <header> 
+            <div class="logo"> 
+                <span class="icon">???</span> 
+                <h1>Virus<span>Total</span> Analyzer</h1> 
+            </div> 
+            <div class="status" id="status">?? API Ready</div> 
+        </header> 
+        <section class="input-section"> 
+            <div class="search-box"> 
+                <input type="text" id="urlInput" placeholder="Enter URL or Hash to analyze..."> 
+                <button id="analyzeBtn">?? Analyze</button> 
+            </div> 
+            <div class="quick-links"> 
+                <span>Try: </span> 
+                <button class="sample-btn" data-url="https://trykuro.app/dashboard?download=windows">Kuro Scam</button> 
+                <button class="sample-btn" data-url="https://google.com">Google</button> 
+            </div> 
+        </section> 
+        <section class="results-section" id="results" style="display: none;"> 
+            <div class="summary-cards" id="summaryCards"> 
+                <div class="card malicious"> 
+                    <span class="label">Malicious</span> 
+                    <span class="value" id="maliciousCount">0</span> 
+                </div> 
+                <div class="card suspicious"> 
+                    <span class="label">Suspicious</span> 
+                    <span class="value" id="suspiciousCount">0</span> 
+                </div> 
+                <div class="card clean"> 
+                    <span class="label">Clean</span> 
+                    <span class="value" id="cleanCount">0</span> 
+                </div> 
+                <div class="card total"> 
+                    <span class="label">Total Vendors</span> 
+                    <span class="value" id="totalCount">0</span> 
+                </div> 
+            </div> 
+            <div class="verdict" id="verdict"> 
+                <span class="badge">Verdict</span> 
+                <span id="verdictText">Analyzing...</span> 
+            </div> 
+            <div class="details-table"> 
+                <h3>Vendor Analysis</h3> 
+                <div id="vendorTable"> 
+                    <table> 
+                        <thead> 
+                            <tr><th>Vendor</th><th>Result</th></tr> 
+                        </thead> 
+                        <tbody id="vendorBody"> 
+                        </tbody> 
+                    </table> 
+                </div> 
+            </div> 
+            <div id="loading" class="loading hidden"> 
+                <div class="spinner"></div> 
+                <p>Analyzing URL with VirusTotal...</p> 
+            </div> 
+        </section> 
+        <footer> 
+            <p>Powered by VirusTotal API | Built with ??</p> 
+        </footer> 
+    </div> 
+    <script src="js/script.js"></script> 
+</body> 
+</html> 
