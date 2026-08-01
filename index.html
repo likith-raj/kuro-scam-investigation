@@ -22,7 +22,6 @@
         h2 { color: #7c3aed; font-size: 20px; margin: 30px 0 15px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(124,58,237,0.1); padding-bottom: 10px; } 
         .desc-text { color: #a8b8c8; line-height: 1.8; font-size: 15px; margin-bottom: 20px; } 
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 15px 0; } 
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 15px 0; } 
         .card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 20px; } 
         .card h3 { color: #e0e0e0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; } 
         .card ul { list-style: none; padding: 0; } 
@@ -55,17 +54,20 @@
         .timeline-item .check { color: #22c55e; } 
         .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid rgba(255,255,255,0.04); text-align: center; color: #444; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; } 
         .footer i { color: #7c3aed; } 
-        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(3, 1fr); } .grid-2 { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } .screenshot-grid { grid-template-columns: 1fr; } .screenshot-card img { height: 200px; } } 
+        .mt-2 { margin-top: 15px; } 
+        .mb-2 { margin-bottom: 15px; } 
+        .text-center { text-align: center; } 
+        @media (max-width: 768px) { .container { padding: 30px; } .stats { grid-template-columns: repeat(3, 1fr); } .grid-2 { grid-template-columns: 1fr; } .header { flex-direction: column; align-items: flex-start; } .header h1 { font-size: 24px; } .screenshot-grid { grid-template-columns: 1fr; } .screenshot-card img { height: 200px; } } 
         @media (max-width: 480px) { .container { padding: 20px; } .stats { grid-template-columns: 1fr; } .screenshot-card img { height: 180px; } .header h1 { font-size: 20px; } .btn { width: 100%%; justify-content: center; } .lightbox img { max-width: 95%%; max-height: 95%%; } .lightbox .close { top: 15px; right: 20px; font-size: 30px; } } 
     </style> 
 </head> 
 <body> 
 <div class="container"> 
-    <span class="case-badge"><i class="fas fa-shield"></i> SOC CASE STUDY #03</span> 
+    <span class="case-badge"><i class="fas fa-shield"></i> SOC CASE STUDY NUMBER 03</span> 
     <div class="header"> 
         <div> 
             <h1>KURO SCAM INVESTIGATION</h1> 
-            <div class="sub"><i class="fas fa-bolt"></i> ELECTRON-BASED CREDENTIAL STEALER | INCIDENT RESPONSE</div> 
+            <div class="sub"><i class="fas fa-bolt"></i> ELECTRON-BASED CREDENTIAL STEALER PIPE INCIDENT RESPONSE</div> 
         </div> 
         <div class="sub"><i class="fas fa-calendar"></i> JULY 2026</div> 
     </div> 
@@ -76,42 +78,111 @@
         <div class="stat"><i class="fas fa-clock"></i><span class="num">45 MIN</span><span class="label">RESPONSE TIME</span></div> 
         <div class="stat"><i class="fas fa-shield"></i><span class="num">1</span><span class="label">VPN PROTECTED</span></div> 
     </div> 
-    <h2>?? THE HONEY TRAP - WHAT HAPPENED</h2> 
+    <h2>THE HONEY TRAP WHAT HAPPENED</h2> 
     <div class="card" style="border-left: 4px solid #ff4757;"> 
-        <p class="desc-text">I discovered a mobile/web application called <strong>"Kuro"</strong> that promised to give <strong>real money for sharing screen time</strong. The app paid me <strong>?301 as an Amazon voucher</strong> to build trust. However, I noticed something suspicious - a process named <strong>splunkd.exe</strong> was running in the background without my knowledge.</p> 
+        <p class="desc-text">I discovered a mobile and web application called <strong>"Kuro"</strong> that promised to give <strong>real money for sharing screen time</strong. The app paid me <strong>Rs 301 as an Amazon voucher</strong> to build trust. However, I noticed something suspicious a process named <strong>splunkd.exe</strong> was running in the background without my knowledge.</p> 
     </div> 
-    <p class="desc-text">This was a <strong>honey trap</strong> - the attacker uses small payments to gain your trust, while the app secretly captures your <strong>screen activity, keystrokes, and browser sessions</strong. The stolen data is sent to their Command & Control (C2) server in real-time.</p> 
-    <h2>?? THE SCAM MECHANISM</h2> 
+    <p class="desc-text">This was a <strong>honey trap</strong> the attacker uses small payments to gain your trust, while the app secretly captures your <strong>screen activity, keystrokes, and browser sessions</strong. The stolen data is sent to their Command and Control C2 server in real time.</p> 
+    <h2>WHAT IS BAIT IN CYBERSECURITY</h2> 
+    <div class="card"> 
+        <p class="desc-text"><strong>Bait</strong> means something attractive used to trap someone. In cybersecurity, attackers use <strong>bait</strong> to trick victims into doing something dangerous. Like how you put cheese in a mouse trap.</p> 
+        <div class="grid-2 mt-2"> 
+            <div class="card" style="border-left: 4px solid #22c55e;"> 
+                <h3>BAIT ELEMENTS IN KURO SCAM</h3> 
+                <ul> 
+                    <li><i class="fas fa-money-bill-wave" style="color: #22c55e;"></i> <strong>Money:</strong> Rs 301 Amazon voucher real money equals Trust</li> 
+                    <li><i class="fas fa-bolt" style="color: #22c55e;"></i> <strong>Easy Work:</strong> Just share your screen looks simple</li> 
+                    <li><i class="fas fa-mobile-alt" style="color: #22c55e;"></i> <strong>Legitimate App:</strong> Professional looking app looks real</li> 
+                    <li><i class="fas fa-clock" style="color: #22c55e;"></i> <strong>Urgency:</strong> Earn now makes you act fast</li> 
+                </ul> 
+            </div> 
+            <div class="card" style="border-left: 4px solid #ffa502;"> 
+                <h3>HOW THE BAIT WORKED</h3> 
+                <ul> 
+                    <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> You see Earn Rs 301 by sharing screen</li> 
+                    <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> You think Easy money why not</li> 
+                    <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> You install the app</li> 
+                    <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> You get Rs 301 voucher real money</li> 
+                    <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Trust is built</li> 
+                    <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Malware steals everything in background</li> 
+                </ul> 
+            </div> 
+        </div> 
+    </div> 
+    <h2>WHAT IS SPLUNKD EXE AND HOW ATTACKERS HIDE</h2> 
+    <div class="card"> 
+        <p class="desc-text"><strong>splunkd.exe</strong> is a real program from <strong>Splunk</strong> a legitimate company. But in Kuro Scam, attackers use the <strong>SAME NAME</strong> to hide their malware.</p> 
+        <div class="grid-2 mt-2"> 
+            <div class="card" style="border-left: 4px solid #22c55e;"> 
+                <h3>REAL SPLUNKD EXE</h3> 
+                <ul> 
+                    <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Purpose:</strong> Log monitoring and analysis</li> 
+                    <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Location:</strong> C Program Files Splunk bin splunkd.exe</li> 
+                    <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Signature:</strong> Digitally signed by Splunk Inc</li> 
+                    <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Service:</strong> Splunkd Windows Service</li> 
+                    <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Behavior:</strong> Collects logs</li> 
+                    <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Network:</strong> Sends logs to Splunk server</li> 
+                    <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>File Size:</strong> 50 to 100 MB</li> 
+                </ul> 
+            </div> 
+            <div class="card" style="border-left: 4px solid #ff4757;"> 
+                <h3>FAKE KURO SPLUNKD EXE</h3> 
+                <ul> 
+                    <li><i class="fas fa-times-circle" style="color: #ff4757;"></i> <strong>Purpose:</strong> Screen capture and stealing</li> 
+                    <li><i class="fas fa-times-circle" style="color: #ff4757;"></i> <strong>Location:</strong> C Users hp AppData Local KuroWindows current splunkd.exe</li> 
+                    <li><i class="fas fa-times-circle" style="color: #ff4757;"></i> <strong>Signature:</strong> No valid signature</li> 
+                    <li><i class="fas fa-times-circle" style="color: #ff4757;"></i> <strong>Service:</strong> No service runs as app</li> 
+                    <li><i class="fas fa-times-circle" style="color: #ff4757;"></i> <strong>Behavior:</strong> Captures screen and keystrokes</li> 
+                    <li><i class="fas fa-times-circle" style="color: #ff4757;"></i> <strong>Network:</strong> Sends to C2 server trykuro.app</li> 
+                    <li><i class="fas fa-times-circle" style="color: #ff4757;"></i> <strong>File Size:</strong> Only 176 KB suspicious</li> 
+                </ul> 
+            </div> 
+        </div> 
+        <div class="card mt-2" style="border-left: 4px solid #7c3aed;"> 
+            <h3>THE MASQUERADING TECHNIQUE</h3> 
+            <ul> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 1: Attacker creates malware</li> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 2: Names it splunkd.exe</li> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 3: Puts it in AppData Local KuroWindows</li> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 4: Adds to Registry HKCU Run KuroWindows</li> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 5: Starts automatically with Windows</li> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 6: You see splunkd.exe in Task Manager</li> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 7: You think Oh Splunk is running</li> 
+                <li><i class="fas fa-arrow-right" style="color: #ffa502;"></i> Step 8: Malware runs secretly forever</li> 
+            </ul> 
+        </div> 
+    </div> 
+    <h2>THE SCAM MECHANISM</h2> 
     <div class="card"> 
         <h3>HOW THE HONEY TRAP WORKS</h3> 
         <ul> 
-            <li><i class="fas fa-gift" style="color: #22c55e;"></i> <strong>Bait:</strong> "Earn money by sharing your screen" - appears legitimate</li> 
-            <li><i class="fas fa-money-bill-wave" style="color: #22c55e;"></i> <strong>Reward:</strong> ?301 Amazon voucher (real money to build trust)</li> 
-            <li><i class="fas fa-desktop" style="color: #ffa502;"></i> <strong>Hidden Payload:</strong> splunkd.exe runs in background (masquerading as legitimate)</li> 
-            <li><i class="fas fa-keyboard" style="color: #ff4757;"></i> <strong>Stealing:</strong> Screen captures + keystroke logging + browser cookies</li> 
-            <li><i class="fas fa-database" style="color: #ff4757;"></i> <strong>Exfiltration:</strong> Data sent to C2 server via HTTPS + WebSockets</li> 
+            <li><i class="fas fa-gift" style="color: #22c55e;"></i> <strong>Bait:</strong> Earn money by sharing your screen appears legitimate</li> 
+            <li><i class="fas fa-money-bill-wave" style="color: #22c55e;"></i> <strong>Reward:</strong> Rs 301 Amazon voucher real money to build trust</li> 
+            <li><i class="fas fa-desktop" style="color: #ffa502;"></i> <strong>Hidden Payload:</strong> splunkd.exe runs in background masquerading as legitimate</li> 
+            <li><i class="fas fa-keyboard" style="color: #ff4757;"></i> <strong>Stealing:</strong> Screen captures plus keystroke logging plus browser cookies</li> 
+            <li><i class="fas fa-database" style="color: #ff4757;"></i> <strong>Exfiltration:</strong> Data sent to C2 server via HTTPS plus WebSockets</li> 
         </ul> 
     </div> 
-    <h2>??? ATTACK ARCHITECTURE</h2> 
+    <h2>ATTACK ARCHITECTURE</h2> 
     <div class="card"> 
         <pre style="color: #a8b8c8; font-size: 13px; line-height: 2; font-family: monospace; background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;"> 
-[VICTIM PC]                                    [ATTACKER INFRASTRUCTURE] 
- - Kuro App (Electron Framework)                - C2 Command Server 
-      +--> splunkd.exe (Masquerading)           - Receives Session Cookies 
-             +--> Python Script (Capture)        - Media Streaming Server 
+VICTIM PC                                    ATTACKER INFRASTRUCTURE 
+ - Kuro App Electron Framework                - C2 Command Server 
+      plus--> splunkd.exe Masquerading           - Receives Session Cookies 
+             plus--> Python Script Capture        - Media Streaming Server 
                     - Screen Frames                - Live Screen Feed 
                     - Keystrokes                   - Key Logs 
                     - Browser Cookies              - Session Hijacking 
         </pre> 
     </div> 
-    <h2>??? INDICATORS OF COMPROMISE</h2> 
+    <h2>INDICATORS OF COMPROMISE</h2> 
     <div class="grid-2"> 
         <div class="card"> 
             <h3>NETWORK INDICATORS</h3> 
             <ul> 
                 <li><i class="fas fa-globe"></i> DOMAIN: TRYKURO.APP</li> 
                 <li><i class="fas fa-ip"></i> IP ADDRESS: 216.150.1.193</li> 
-                <li><i class="fas fa-shield"></i> C2 COMMUNICATION: HTTPS + WEBSOCKETS</li> 
+                <li><i class="fas fa-shield"></i> C2 COMMUNICATION: HTTPS plus WEBSOCKETS</li> 
                 <li><i class="fas fa-cloud"></i> STORAGE: kuro-recordings-new.s3.us-east-1.amazonaws.com</li> 
                 <li><i class="fas fa-code-branch"></i> SUBDOMAINS: updates.trykuro.app, auth.trykuro.app</li> 
             </ul> 
@@ -119,64 +190,65 @@
         <div class="card"> 
             <h3>HOST INDICATORS</h3> 
             <ul> 
-                <li><i class="fas fa-cog"></i> PROCESS: SPLUNKD.EXE (MASQUERADING)</li> 
-                <li><i class="fas fa-registered"></i> REGISTRY: HKLM\RUN\KURO <span class="danger">(DELETED)</span></li> 
-                <li><i class="fas fa-folder"></i> FILE PATH: C:\Users\hp\AppData\Roaming%\KURO <span class="danger">(REMOVED)</span></li> 
-                <li><i class="fas fa-file"></i> LOGS: kuro-capture.log, kuro-upload.log <span class="danger">(DELETED)</span></li> 
+                <li><i class="fas fa-cog"></i> PROCESS: SPLUNKD.EXE MASQUERADING</li> 
+                <li><i class="fas fa-registered"></i> REGISTRY: HKLM RUN KURO DELETED</li> 
+                <li><i class="fas fa-folder"></i> FILE PATH: APPDATA KURO REMOVED</li> 
+                <li><i class="fas fa-file"></i> LOGS: kuro-capture.log, kuro-upload.log DELETED</li> 
             </ul> 
         </div> 
     </div> 
-    <h2>?? VPN PROTECTION USED</h2> 
+    <h2>VPN PROTECTION USED</h2> 
     <div class="card" style="border-left: 4px solid #00ff41;"> 
         <ul> 
             <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>VPN Service:</strong> TOUCH VPN</li> 
-            <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Real IP:</strong> HIDDEN (IPv6 - Airtel)</li> 
-            <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>VPN IP:</strong> 185.212.169.106 (United Kingdom)</li> 
+            <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Real IP:</strong> HIDDEN IPv6 Airtel</li> 
+            <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>VPN IP:</strong> 185.212.169.106 United Kingdom</li> 
             <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>ISP:</strong> M247 Ltd</li> 
-            <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Status:</strong> PROTECTED ?</li> 
+            <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> <strong>Status:</strong> PROTECTED</li> 
         </ul> 
     </div> 
-    <h2>?? SCREENSHOTS (CLICK TO VIEW LARGER)</h2> 
+    <h2>SCREENSHOTS CLICK TO VIEW LARGER</h2> 
     <div class="screenshot-grid"> 
         <div class="screenshot-card" onclick="openLightbox(this)"> 
             <img src="screenshots/kuroapp.png.png" alt="Kuro App"> 
-            <p>KURO APP INTERFACE | MONEY EARNING PAGE</p> 
+            <p>KURO APP INTERFACE MONEY EARNING PAGE</p> 
         </div> 
         <div class="screenshot-card" onclick="openLightbox(this)"> 
             <img src="screenshots/money.png.png" alt="Money"> 
-            <p>MONEY EARNING | ?301 EARNED</p> 
+            <p>MONEY EARNING RS 301 EARNED</p> 
         </div> 
         <div class="screenshot-card" onclick="openLightbox(this)"> 
             <img src="screenshots/giftcard.png.png" alt="Gift Card"> 
-            <p>AMAZON VOUCHER | ?301 RECEIVED</p> 
+            <p>AMAZON VOUCHER RS 301 RECEIVED</p> 
         </div> 
         <div class="screenshot-card" onclick="openLightbox(this)"> 
             <img src="screenshots/virustotal.png.png" alt="VirusTotal"> 
-            <p>VIRUSTOTAL REPORT | MALICIOUS DETECTION</p> 
+            <p>VIRUSTOTAL REPORT MALICIOUS DETECTION</p> 
         </div> 
         <div class="screenshot-card" onclick="openLightbox(this)"> 
             <img src="screenshots/registry.png.png" alt="Registry"> 
-            <p>REGISTRY PERSISTENCE | HKLM\RUN\KURO DELETED</p> 
+            <p>REGISTRY PERSISTENCE HKLM RUN KURO DELETED</p> 
         </div> 
     </div> 
     <div class="lightbox" id="lightbox" onclick="closeLightbox()"> 
         <span class="close" onclick="closeLightbox()">x</span> 
         <img id="lightboxImage" src="" alt="Screenshot"> 
     </div> 
-    <h2>?? INVESTIGATION TIMELINE</h2> 
+    <h2>INVESTIGATION TIMELINE</h2> 
     <div class="timeline"> 
-        <div class="timeline-item"><strong>10:30</strong> - Discovered Kuro app - money for screen sharing</div> 
+        <div class="timeline-item"><strong>10:30</strong> - Discovered Kuro app money for screen sharing</div> 
         <div class="timeline-item"><strong>10:32</strong> - Downloaded and installed Kuro app</div> 
-        <div class="timeline-item"><strong>10:35</strong> - Screen share started - received ?301 Amazon voucher</div> 
-        <div class="timeline-item"><strong>10:38</strong> - Noticed splunkd.exe running (suspicious)</div> 
+        <div class="timeline-item"><strong>10:35</strong> - Screen share started received Rs 301 Amazon voucher</div> 
+        <div class="timeline-item"><strong>10:38</strong> - Noticed splunkd.exe running suspicious</div> 
         <div class="timeline-item"><strong>10:40</strong> - Network disconnected <span class="check">?</span></div> 
         <div class="timeline-item"><strong>10:42</strong> - Admin CMD opened for investigation</div> 
         <div class="timeline-item"><strong>10:45</strong> - splunkd.exe and python.exe terminated <span class="check">?</span></div> 
         <div class="timeline-item"><strong>10:48</strong> - Registry Run key deleted <span class="check">?</span></div> 
         <div class="timeline-item"><strong>10:50</strong> - Malware folder removed from AppData <span class="check">?</span></div> 
         <div class="timeline-item"><strong>10:55</strong> - VirusTotal scan confirmed malicious <span class="check">?</span></div> 
-        <div class="timeline-item"><strong>11:00</strong> - All passwords changed, 2FA enabled <span class="check">?</span></div> 
+        <div class="timeline-item"><strong>11:00</strong> - All passwords changed 2FA enabled <span class="check">?</span></div> 
     </div> 
+    <h2>MITRE ATTACK MAPPING</h2> 
     <div class="card"> 
         <table style="width: 100%%; border-collapse: collapse; color: #a8b8c8; font-size: 14px;"> 
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"> 
@@ -185,18 +257,19 @@
                 <th style="text-align: left; padding: 10px; color: #7c3aed;">ID</th> 
                 <th style="text-align: left; padding: 10px; color: #7c3aed;">FOUND</th> 
             </tr> 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">EXECUTION</td><td style="padding: 10px;">USER EXECUTION (MALICIOUS FILE)</td><td style="padding: 10px; color: #ffa502;">T1204.002</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">EXECUTION</td><td style="padding: 10px;">USER EXECUTION MALICIOUS FILE</td><td style="padding: 10px; color: #ffa502;">T1204.002</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">PERSISTENCE</td><td style="padding: 10px;">REGISTRY RUN KEYS</td><td style="padding: 10px; color: #ffa502;">T1547.001</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">DEFENSE EVASION</td><td style="padding: 10px;">MASQUERADING</td><td style="padding: 10px; color: #ffa502;">T1036</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">CREDENTIAL ACCESS</td><td style="padding: 10px;">CREDENTIALS FROM WEB BROWSERS</td><td style="padding: 10px; color: #ffa502;">T1505.001</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">COLLECTION</td><td style="padding: 10px;">SCREEN CAPTURE</td><td style="padding: 10px; color: #ffa502;">T1113</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
             <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">EXFILTRATION</td><td style="padding: 10px;">EXFILTRATION OVER C2 CHANNEL</td><td style="padding: 10px; color: #ffa502;">T1041</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);"><td style="padding: 10px;">COMMAND and CONTROL</td><td style="padding: 10px;">WEBSOCKET COMMUNICATION</td><td style="padding: 10px; color: #ffa502;">T1573</td><td style="padding: 10px; color: #22c55e;">?</td></tr> 
         </table> 
     </div> 
-    <h2>?? REMEDIATION ACTIONS</h2> 
+    <h2>REMEDIATION ACTIONS</h2> 
     <div class="grid-2"> 
         <div class="card"> 
-            <h3>?? IMMEDIATE ACTIONS TAKEN</h3> 
+            <h3>IMMEDIATE ACTIONS TAKEN</h3> 
             <ul> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> NETWORK ISOLATED IMMEDIATELY</li> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> SPLUNKD.EXE AND PYTHON.EXE TERMINATED</li> 
@@ -207,17 +280,18 @@
             </ul> 
         </div> 
         <div class="card"> 
-            <h3>?? POST-INCIDENT SECURITY</h3> 
+            <h3>POST-INCIDENT SECURITY</h3> 
             <ul> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> ALL PASSWORDS CHANGED IMMEDIATELY</li> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> 2FA ENABLED ON ALL ACCOUNTS</li> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> BANK ACCOUNTS MONITORED FOR SUSPICIOUS ACTIVITY</li> 
-                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> GIFT CARD VALUE (?301) REPORTED TO CYBER CRIME</li> 
+                <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> GIFT CARD VALUE Rs 301 REPORTED TO CYBER CRIME</li> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> IOCS REPORTED TO THREAT INTELLIGENCE PLATFORMS</li> 
                 <li><i class="fas fa-check-circle" style="color: #22c55e;"></i> VPN ENABLED FOR ANONYMITY</li> 
             </ul> 
         </div> 
     </div> 
+    <h2>TOOLS AND SKILLS</h2> 
     <div class="grid-2"> 
         <div class="card"> 
             <h3>TOOLS USED</h3> 
@@ -238,18 +312,19 @@
                 <li><i class="fas fa-bug"></i> PROCESS ANALYSIS</li> 
                 <li><i class="fas fa-network-wired"></i> NETWORK ANALYSIS</li> 
                 <li><i class="fas fa-registered"></i> REGISTRY ANALYSIS</li> 
+                <li><i class="fas fa-flag"></i> MITRE ATTACK MAPPING</li> 
             </ul> 
         </div> 
     </div> 
-    <h2>?? LESSONS LEARNED</h2> 
+    <h2>LESSONS LEARNED</h2> 
     <div class="card"> 
         <ul> 
-            <li><i class="fas fa-shield" style="color: #7c3aed;"></i> <strong>IF IT SOUNDS TOO GOOD TO BE TRUE, IT PROBABLY IS</strong> - Money for screen sharing is a red flag</li> 
-            <li><i class="fas fa-eye" style="color: #7c3aed;"></i> <strong>ALWAYS CHECK RUNNING PROCESSES</strong> - splunkd.exe was the giveaway</li> 
-            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>REAL MONEY CAN BE USED AS BAIT</strong> - ?301 was to gain trust before the big steal</li> 
-            <li><i class="fas fa-virus" style="color: #7c3aed;"></i> <strong>VERIFY BEFORE INSTALLING</strong> - Always check app reviews and reputation</li> 
-            <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> <strong>REPORT SUSPICIOUS ACTIVITY</strong> - Helps others avoid the same trap</li> 
-            <li><i class="fas fa-shield-haltered" style="color: #7c3aed;"></i> <strong>USE VPN FOR ANONYMITY</strong> - Protects your identity during investigation</li> 
+            <li><i class="fas fa-shield" style="color: #7c3aed;"></i> <strong>IF IT SOUNDS TOO GOOD TO BE TRUE IT PROBABLY IS</strong> Money for screen sharing is a red flag</li> 
+            <li><i class="fas fa-eye" style="color: #7c3aed;"></i> <strong>ALWAYS CHECK RUNNING PROCESSES</strong> splunkd.exe was the giveaway</li> 
+            <li><i class="fas fa-gift" style="color: #7c3aed;"></i> <strong>REAL MONEY CAN BE USED AS BAIT</strong> Rs 301 was to gain trust before the big steal</li> 
+            <li><i class="fas fa-virus" style="color: #7c3aed;"></i> <strong>VERIFY BEFORE INSTALLING</strong> Always check app reviews and reputation</li> 
+            <li><i class="fas fa-bullhorn" style="color: #7c3aed;"></i> <strong>REPORT SUSPICIOUS ACTIVITY</strong> Helps others avoid the same trap</li> 
+            <li><i class="fas fa-shield-haltered" style="color: #7c3aed;"></i> <strong>USE VPN FOR ANONYMITY</strong> Protects your identity during investigation</li> 
         </ul> 
     </div> 
     <div class="btn-group"> 
@@ -258,7 +333,7 @@
         <a href="https://www.virustotal.com/gui/url/fe03e68fa7fc7b31e1b94dd8eed433354dcc329cc99e5ecb36fa8d55eeb58dc6" target="_blank" class="btn btn-success"><i class="fas fa-virus"></i> VIEW VIRUSTOTAL REPORT</a> 
     </div> 
     <div class="footer"> 
-        <i class="fas fa-copyright"></i> COPY PROTECTED  SOC INVESTIGATION REPORT  BUILT WITH ?? BY LIKITH RAJ</div> 
+        <i class="fas fa-copyright"></i> COPY PROTECTED SOC INVESTIGATION REPORT BUILT WITH LOVE BY LIKITH RAJ</div> 
 </div> 
 </body> 
 </html> 
